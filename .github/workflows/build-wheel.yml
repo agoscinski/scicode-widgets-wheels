@@ -19,13 +19,8 @@ jobs:
         run: |
           pip install wheel
           pip wheel --no-deps -w dist .
-
-      - uses: actions/checkout@v3
-        with:
-          ref: wheels
-          fetch-depth: 2
-      - run: |
-          git checkout HEAD^
+          git checkout wheels
+          git reset --hard HEAD^
           git config user.name github-actions
           git config user.email github-actions@github.com
           mv dist/*whl .
