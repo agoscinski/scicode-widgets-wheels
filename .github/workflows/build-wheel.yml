@@ -27,3 +27,5 @@ jobs:
           git add ./*whl
           git commit -m "generated"
           git push -f
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
