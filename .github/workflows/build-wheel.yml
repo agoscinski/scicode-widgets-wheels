@@ -27,7 +27,8 @@ jobs:
           git add ./*whl
           git commit -m "generated"
       - name: Push changes
-        uses: ad-m/github-push-action@wheels
+        uses: ad-m/github-push-action@master
         with:
+          branch: wheels
           github_token: ${{ secrets.GITHUB_TOKEN }}
           force: true
