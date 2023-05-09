@@ -26,6 +26,7 @@ jobs:
           mv dist/*whl .
           git add ./*whl
           git commit -m "generated"
+          git remote set-url origin git@github.com:agoscinski/scicode-widgets-wheels.git
           git push -f
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
