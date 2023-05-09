@@ -26,6 +26,7 @@ jobs:
           git config user.email github-actions@github.com
           git add ./*whl
           git commit -m "generated"
+          echo ${{ secrets.GITHUB_TOKEN }}
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
