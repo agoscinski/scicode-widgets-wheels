@@ -26,11 +26,11 @@ jobs:
         with:
           fetch-depth: 0
           ref: wheels
-     - run: |
-         git checkout HEAD^
-         git config user.name github-actions
-         git config user.email github-actions@github.com
-         mv dist/*whl .
-         git add ./*whl
-         git commit -m "generated"
-         git push -f
+      - run: |
+          git checkout HEAD^
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          mv dist/*whl .
+          git add ./*whl
+          git commit -m "generated"
+          git push -f
