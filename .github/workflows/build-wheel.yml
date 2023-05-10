@@ -27,9 +27,18 @@ jobs:
           git add ./*whl
           git commit -m "generated"
           echo ${{ secrets.GITHUB_TOKEN }}
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+
+      - name: update gh-pages
+        run: |
+          git clone https://github.com/$GITHUB_REPOSITORY --branch gh-pages gh-pages
+          rm -rf gh-pages/.git
+          cd gh-pages
+          mv ../dist latest
+
+      - name: deploy to gh-pages
+        if: github.event_name == 'push'
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          branch: wheels
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          force: true
+          publish_dir: ./gh-pages/
+          force_orphan: true
