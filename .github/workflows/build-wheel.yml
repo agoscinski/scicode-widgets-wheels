@@ -33,6 +33,8 @@ jobs:
           git clone https://github.com/$GITHUB_REPOSITORY --branch gh-pages gh-pages
           rm -rf gh-pages/.git
           cd gh-pages
+          mkdir latest
+          touch latest/index.html
           mv ../dist latest
 
       - name: deploy to gh-pages
